@@ -7,14 +7,7 @@ function changeSelectEstado() {
     porDocente.style.display="none";
     porCurso.style.display="none";
 
-    if(value=="por-docente")
-    {
-        porDocente.style.display="flex";
-    }
-    if(value=="por-curso")
-    {
-        porCurso.style.display="flex";
-    }
+    document.getElementById(value).style.display="block";
+
 }
-document.getElementById("select-docente").addEventListener("change", changeSelectEstado);
-document.getElementById("select-curso").addEventListener("change", changeSelectEstado);
+document.getElementById("select-tipo").addEventListener("change", changeSelectEstado);

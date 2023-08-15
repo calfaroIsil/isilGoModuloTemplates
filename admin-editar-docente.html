@@ -183,20 +183,20 @@
                                         </div>
                                     </div>
 
-                                    <div class="row mb-3" id="por-docente">
+                                    <div class="row mb-3">
                                         <div class="col-xl-6">
                                             <div class="form-group mb-3">
                                                 <label for="nombres" class="form-label">
                                                     Tipo
                                                     <spanc class="text-danger">*</span>
                                                 </label>
-                                                <select class="form-select form-control" id="select-docente" required>
+                                                <select class="form-select form-control" id="select-tipo" required>
                                                     <option selected value="por-docente">Por docente</option>
                                                     <option value="por-curso">Por curso</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-6" id="por-docente">
                                             <label for="porcentaje-por-docente" class="form-label">&nbsp</label>
                                             <div class="input-group">
 
@@ -206,22 +206,7 @@
                                                 <span class="input-group-text" id="percent">%</span>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row mb-3 por-curso" id="por-curso" style="display: none;">
-                                        <div class="col-xl-6">
-                                            <div class="form-group mb-3">
-                                                <label for="nombres" class="form-label">
-                                                    Tipo
-                                                    <spanc class="text-danger">*</span>
-                                                </label>
-                                                <select class="form-select form-control" id="select-curso" required>
-                                                    <option value="por-docente">Por docente</option>
-                                                    <option selected value="por-curso">Por curso</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-6" id="por-curso" style="display: none;">
                                             <ul class="list-group mt-4">
                                                 <li
                                                     class="list-group-item d-flex flex-xl-row flex-column justify-content-between p-3">

@@ -151,6 +151,25 @@ if (dataTableElem) {
         console.log("cambiando");
     });
 }
+
+function showFiltersResults()
+{
+    
+    let op1 = document.getElementById("op1");
+    let op2 = document.getElementById("op2");
+
+    if(op1.style.display==="none")
+    {
+        op1.style.display="inline-block"
+        op2.style.display="none"
+    }
+    else
+    {
+        op1.style.display="none"
+        op2.style.display="inline-block"
+    }
+}
+document.getElementById("btn-filtrar").addEventListener("click", showFiltersResults);
 /*============================================================/*
                         SIMPLE-DATATABLE                            
 /*============================================================*/
