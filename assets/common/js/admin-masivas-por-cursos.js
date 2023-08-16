@@ -1,3 +1,8 @@
+let pageSelected="admin-tasas-masivas.html";
+
+/*============================================================/*
+                        SIMPLE-DATATABLE                            
+/*============================================================*/
 const dataTableElem = document.getElementById("myTable");
 if (dataTableElem) {
     const dataTable = new simpleDatatables.DataTable("#myTable", {
@@ -32,3 +37,6 @@ function changeSelect() {
     window.location.href = value;
 }
 document.getElementById("tipo").addEventListener("change", changeSelect);
+/*============================================================/*
+                        SIMPLE-DATATABLE                            
+/*============================================================*/

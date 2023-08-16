@@ -7,16 +7,12 @@
     <title>Página de Inicio</title>
     <link rel="stylesheet" href="assets/lib/bootstrap-5.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/common/css/isil-go.css">
-    <link rel="stylesheet"
-        href="assets/lib/fontawesome-free-6.4.2-web/css/all.min.css">
+    <link rel="stylesheet" href="assets/lib/fontawesome-free-6.4.2-web/css/all.min.css">
 
     <!-- FAVICON -->
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="assets/common/images/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="assets/common/images/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="assets/common/images/favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/common/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/common/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/common/images/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="assets/common/images/favicon_io/site.webmanifest">
     <!-- FAVICON -->
 </head>
@@ -26,54 +22,12 @@
         <div class="row">
 
             <!-- SIDEBAR -->
-            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-primary sidebar p-0">
-                <div class="text-center mt-4 mb-3">
-                    <img src="assets/common/images/logo-isil.svg" alt="isilgo"
-                        class="img-fluid">
+            <div class="p-0" id="sidebar-container">
+                <div class="mt-3 ms-3">
+                    <strong class="me-2" role="status">Loading...</strong>
+                    <div class="spinner-border spinner-border-sm" aria-hidden="true"></div>
                 </div>
-                <div class="position-sticky">
-                    <div class="text-center px-4 mx-5">
-                        <img src="assets/common/images/generic_user.jpg" alt="img"
-                            class="img-fluid rounded-circle img-thumbnail mb-3">
-                        <h5 class="text-white mb-1">Marco Del Castillo</h5>
-                        <p class="text-dark-blue fw-bold">Asesor Legal y Docente Universitario</p>
-                    </div>
-                    <ul class="nav flex-column isilMenu">
-                        <li class="active">
-                            <a href="dashboard.html">
-                                <i class="fa-solid fa-house"></i>Inicio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="listado-de-comisiones.html">
-                                <i class="fa-solid fa-money-bill-wave"></i>Comisiones
-                            </a>
-                        </li>
-                        <li>
-                            <a href="listado-de-cursos.html">
-                                <i class="fa-solid fa-book"></i> Cursos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="login.html">
-                                <i class="fa-solid fa-arrow-right-from-bracket"></i>Salir
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <button id="closeSidebar" class="d-md-none fs-3 position-absolute top-0 end-0 btn text-white">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </nav>
-            <!-- TOP MENU ON MOBILE -->
-            <div class="menuTopBar text-center py-3">
-                <img src="assets/common/images/logo-isil.svg" alt="isilgo" class="h-100">
-                <button id="sidebarCollapse" class="btn btn-light position-absolute top-0 end-0 mt-2 me-2">
-                    <i class="fa-solid fa-bars text-secondary"></i>
-                </button>
             </div>
-            <!-- TOP MENU ON MOBILE -->
             <!-- SIDEBAR -->
 
             <main id="content">
@@ -103,7 +57,8 @@
                                     <div class="text-start ps-xxl-5 ps-3 py-3">
                                         <h4 class="mb-2 fw-normal">Comisiones <br> Totales</h4>
                                         <span class="divider-button mb-2"></span>
-                                        <div class="mb-0 custom-card-init d-flex justify-content-start align-items-center">
+                                        <div
+                                            class="mb-0 custom-card-init d-flex justify-content-start align-items-center">
                                             <h3 class="mb-0 text-nowrap me-4">S/ 2500</h3>
                                             <small class="text-success text-nowrap">
                                                 <i class="fa-solid fa-sort-up"></i> 19%
@@ -111,8 +66,8 @@
                                         </div>
                                     </div>
                                     <div class="d-inline-block position-relative">
-                                        <img src="assets/common/images/icon-01.png"
-                                            alt="icon" draggable="false" class="img-fluid">
+                                        <img src="assets/common/images/icon-01.png" alt="icon" draggable="false"
+                                            class="img-fluid">
                                     </div>
                                 </button>
                             </div>
@@ -122,7 +77,8 @@
                                     <div class="text-start ps-xxl-5 ps-3 py-3">
                                         <h4 class="mb-2 fw-normal">Comisiones <br> agosto</h4>
                                         <span class="divider-button mb-2 bg-danger"></span>
-                                        <div class="mb-0 custom-card-init d-flex justify-content-start align-items-center">
+                                        <div
+                                            class="mb-0 custom-card-init d-flex justify-content-start align-items-center">
                                             <h3 class="mb-0 text-nowrap me-4">S/ 80</h3>
                                             <small class="text-danger text-nowrap">
                                                 <i class="fa-solid fa-caret-down"></i> 0.1%
@@ -130,8 +86,8 @@
                                         </div>
                                     </div>
                                     <div class="d-inline-block position-relative">
-                                        <img src="assets/common/images/money.png"
-                                            alt="icon" draggable="false" class="img-fluid">
+                                        <img src="assets/common/images/money.png" alt="icon" draggable="false"
+                                            class="img-fluid">
                                     </div>
                                 </button>
                             </div>
@@ -141,7 +97,8 @@
                                     <div class="text-start ps-xxl-5 ps-3 py-3">
                                         <h4 class="mb-2 fw-normal">Cursos <br> vendidos</h4>
                                         <span class="divider-button mb-2 bg-success"></span>
-                                        <div class="mb-0 custom-card-init d-flex justify-content-start align-items-center">
+                                        <div
+                                            class="mb-0 custom-card-init d-flex justify-content-start align-items-center">
                                             <h3 class="mb-0 text-nowrap me-4">4</h3>
                                             <small class="text-success text-nowrap">
                                                 / 5 totales
@@ -149,8 +106,8 @@
                                         </div>
                                     </div>
                                     <div class="d-inline-block position-relative">
-                                        <img src="assets/common/images/shop.png"
-                                            alt="icon" draggable="false" class="img-fluid">
+                                        <img src="assets/common/images/shop.png" alt="icon" draggable="false"
+                                            class="img-fluid">
                                     </div>
                                 </button>
                             </div>
@@ -262,10 +219,9 @@
     <script src="assets/lib/chart/chart.js"></script>
 
     <link href="assets/lib/simple-tables/style.css" rel="stylesheet" type="text/css">
-    <script src="assets/lib/simple-tables/simple-datatables7.3.0.js"
-        type="text/javascript"></script>
+    <script src="assets/lib/simple-tables/simple-datatables7.3.0.js" type="text/javascript"></script>
 
-
+    <script src="assets/common/js/load-sidebar-usuarios.js"></script>
     <script src="assets/common/js/main.js"></script>
     <script src="assets/common/js/dashboard.js"></script>
 </body>

@@ -976,6 +976,7 @@ td {
 .isil-dataTable .image-table {
     width: 60px;
     height: 60px;
+    max-width: initial !important;
 }
 
 .datatable-bottom {
