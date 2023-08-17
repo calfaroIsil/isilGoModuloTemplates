@@ -4,7 +4,9 @@ import auth from '../modules/Auth.js';
 document.addEventListener('DOMContentLoaded', () => {
 
     if (auth.isAuthenticated()) {
-       redireccionarAPaginaPrincipal();
+        redireccionarAPagina("dashboard.html");
+    } else {
+        ejecutarSiExiste(removePreloader);
     }
 
     const loginForm = document.getElementById('login-form');
@@ -29,19 +31,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             else if (APIresponse.token != undefined) {
                 alert("bienvenido");
-                console.log(APIresponse.token);
                 auth.setToken(APIresponse.token);
+                const uData = `{
+                    "nombre": "${APIresponse.firstName}",
+                    "apellido": "${APIresponse.lastName}",
+                    "cargo": "${APIresponse.username}",
+                    "imagen": "${APIresponse.image}",
+                    "id": "${APIresponse.id}"
+                }`;
+                auth.setUser(uData);
+                //redirigiendo
+                redireccionarAPagina("dashboard.html");
             }
-
-            // Redirigir al usuario a la página correspondiente
         } catch (error) {
             // Mostrar mensaje de error al usuario
             alert(error);
         }
     });
-
-    function redireccionarAPaginaPrincipal()
-    {
-        window.location.href="dashboard.html";
-    }
 });

@@ -18,6 +18,11 @@
 </head>
 
 <body>
+
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
+    </div>
+
     <div class="container-fluid">
         <div class="row">
 
@@ -59,7 +64,7 @@
                                         <span class="divider-button mb-2"></span>
                                         <div
                                             class="mb-0 custom-card-init d-flex justify-content-start align-items-center">
-                                            <h3 class="mb-0 text-nowrap me-4">S/ 2500</h3>
+                                            <h3 class="mb-0 text-nowrap me-4" id="comisionesTotales"></h3>
                                             <small class="text-success text-nowrap">
                                                 <i class="fa-solid fa-sort-up"></i> 19%
                                             </small>
@@ -79,7 +84,7 @@
                                         <span class="divider-button mb-2 bg-danger"></span>
                                         <div
                                             class="mb-0 custom-card-init d-flex justify-content-start align-items-center">
-                                            <h3 class="mb-0 text-nowrap me-4">S/ 80</h3>
+                                            <h3 class="mb-0 text-nowrap me-4" id="comisionesMesActual"></h3>
                                             <small class="text-danger text-nowrap">
                                                 <i class="fa-solid fa-caret-down"></i> 0.1%
                                             </small>
@@ -99,10 +104,8 @@
                                         <span class="divider-button mb-2 bg-success"></span>
                                         <div
                                             class="mb-0 custom-card-init d-flex justify-content-start align-items-center">
-                                            <h3 class="mb-0 text-nowrap me-4">4</h3>
-                                            <small class="text-success text-nowrap">
-                                                / 5 totales
-                                            </small>
+                                            <h3 class="mb-0 text-nowrap me-4" id="cursosVendidos"></h3>
+                                            <small class="text-success text-nowrap" id="cursosTotales"></small>
                                         </div>
                                     </div>
                                     <div class="d-inline-block position-relative">
@@ -145,8 +148,11 @@
                                     </div>
                                     <div class="card-body p-0">
                                         <table class="table table table-striped isil-table">
-                                            <tbody>
+                                            <tbody id="comisionesResientesContainer">
                                                 <tr>
+                                                    <td>Cargando...</td>
+                                                </tr>
+                                                <!-- <tr>
                                                     <td>
                                                         <span>vendido el 20/11/2023</span>
                                                         <p class="fw-bold">ESTRATEGIA Y GESTIÓN DE LA CADENA DE
@@ -200,7 +206,7 @@
                                                         <span>Comisión:</span>
                                                         <h4 class="mb-0 text-primary">S/ 250</h4>
                                                     </td>
-                                                </tr>
+                                                </tr> -->
 
 
                                             </tbody>
@@ -221,9 +227,11 @@
     <link href="assets/lib/simple-tables/style.css" rel="stylesheet" type="text/css">
     <script src="assets/lib/simple-tables/simple-datatables7.3.0.js" type="text/javascript"></script>
 
-    <script src="assets/common/js/load-sidebar-usuarios.js"></script>
-    <script src="assets/common/js/main.js"></script>
-    <script src="assets/common/js/dashboard.js"></script>
+    
+    <script src="assets/common/js/main.js"></script>    
+    <script type="module" src="assets/common/js/pages/load-sidebar-usuarios.js"></script>
+    <script type="module" src="assets/common/js/pages/dashboard.js"></script>
+
 </body>
 
 </html>

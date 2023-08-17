@@ -1,4 +1,10 @@
+
+
 document.addEventListener('DOMContentLoaded', async () => {
+
+
+    
+
     const response = await fetch('templates/sidebarAdmin.html');
     const menuContent = await response.text();
     const navPlaceholders = document.querySelectorAll('#sidebar-container');

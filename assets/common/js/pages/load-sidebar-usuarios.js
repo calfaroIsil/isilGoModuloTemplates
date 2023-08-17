@@ -1,10 +1,24 @@
-document.addEventListener('DOMContentLoaded', async () => {
+import auth from '../modules/Auth.js';
+
+document.addEventListener('DOMContentLoaded', async () => {   
+    
+    
     const response = await fetch('templates/sidebar.html');
     const menuContent = await response.text();
     const navPlaceholders = document.querySelectorAll('#sidebar-container');
     navPlaceholders.forEach((placeholder) => {
         placeholder.innerHTML = menuContent;
 
+        if (auth.isAuthenticated()) {
+            const uData = JSON.parse(auth.getUser());
+            const labelNombresCompletos = document.getElementById("labelNombresCompletos");
+            const labelCargo = document.getElementById("labelCargo");
+            const userImage = document.getElementById("imagenDeUsuario");
+            labelNombresCompletos.innerHTML = `${uData.nombre} ${uData.apellido}`;
+            labelCargo.innerHTML = uData.cargo;
+            userImage.setAttribute("src", uData.imagen);
+         }
+        
         /*============================================================/*
                       RESPONSIVE BUTTONS                            
         /*============================================================*/
