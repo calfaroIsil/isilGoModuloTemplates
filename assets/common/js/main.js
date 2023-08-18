@@ -8,31 +8,35 @@ function removePreloader() {
     let preloader = document.getElementById("preloader");
     preloader.style.opacity = "0";
     setTimeout(function () {
-      preloader.style.display = "none";
+        preloader.style.display = "none";
     }, 800);
 }
 /* PRELOADER */
 
-function stringToAnchor(string)
-{
+function stringToAnchor(string) {
     const anchor = document.createElement("a");
     anchor.href = string;
     return anchor;
 }
 
 /* REDIRECCIONAR A PÁGINA */
-function redireccionarAPagina(url)
-{
-    window.location.href=url;
+function redireccionarAPagina(url) {
+    window.location.href = url;
 }
 /* REDIRECCIONAR A PÁGINA */
 
 /* METODO PARA EJECUTAR UNA FUNCION SI EXISTE */
-function ejecutarSiExiste(nombreFuncion)
-{
-    if(typeof nombreFuncion === "function" )
-    {
+function ejecutarSiExiste(nombreFuncion) {
+    if (typeof nombreFuncion === "function") {
         nombreFuncion();
     }
 }
 /* METODO PARA EJECUTAR UNA FUNCION SI EXISTE */
+
+/* METODO ELIMINA CARACTERES ESPECIALES */
+function sanitizeInput(input) {
+    var sanitizedInput = input.replace(/[^\w\s]/gi, '');
+    return sanitizedInput;
+}
+
+/* METODO ELIMINA CARACTERES ESPECIALES */

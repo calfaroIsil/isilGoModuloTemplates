@@ -10,11 +10,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const token = auth.getToken();
         const comisiones = new Comisiones(api);
         try {
-            const comisionesList = await comisiones.listComisiones(user.id, token);
+            const comisionesList = await comisiones.listComisiones(user.id, token);           
             renderComisionesRecientes(comisionesList);
-            renderHeadCard(comisionesList);
-           // console.log(comisionesList.carts[0].products);           
-           console.log(comisionesList);
+            renderHeadCard(comisionesList);                      
+            console.log(comisionesList);
         }
         catch (error) {
             console.error('Error: ', error);
@@ -29,8 +28,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function renderComisionesRecientes(comisionesList) {
     const comisionesResientesContainer = document.getElementById("comisionesResientesContainer");
-    const listaComisiones = comisionesList.carts[0].products; // CAMBIAR AQUI CUANDO EL API DE ISIL ESTÉ LISTO.
 
+    if(typeof comisionesList.carts[0]== "undefined")// CAMBIAR AQUI CUANDO EL API DE ISIL ESTÉ LISTO.
+    {
+        comisionesResientesContainer.innerHTML = `<tr><td>Aún no tienes comisiones</td></tr>`;
+        return;
+    }    
+
+    const listaComisiones = comisionesList.carts[0].products;
     comisionesResientesContainer.innerHTML = "";
     listaComisiones.forEach(comision => {
         comisionesResientesContainer.innerHTML += `
@@ -48,6 +53,12 @@ function renderComisionesRecientes(comisionesList) {
 }
 
 function renderHeadCard(comisionesList){
+
+    if(typeof comisionesList.carts[0]== "undefined")// CAMBIAR AQUI CUANDO EL API DE ISIL ESTÉ LISTO.
+    {
+        return;
+    }
+
     const comisionesTotales = document.getElementById("comisionesTotales");
     const comisionesMesActual = document.getElementById("comisionesMesActual");
     const cursosVendidos = document.getElementById("cursosVendidos");

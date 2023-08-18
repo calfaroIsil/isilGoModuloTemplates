@@ -77,14 +77,17 @@ class API {
 
     }
 
-    async getUsers() {
-        // ... (código de getUsers)
-    }
-
     async getComisiones(userId, token) {
         return this.request(`/users/${userId}/carts`, 'GET', null, token);
     }
 
+    async getAllComisiones(userId, token) { //----------------> CAMBIAR CUANDO EL API DE ISIL ESTÉ LISTA
+        return this.request(`/products/`, 'GET', null, token);
+    }
+
+    async getSearchComisiones(userId, token, query) { //----------------> CAMBIAR CUANDO EL API DE ISIL ESTÉ LISTA
+        return this.request(`/products/search?q=${query}`, 'GET', null, token);
+    }
 
 }
 

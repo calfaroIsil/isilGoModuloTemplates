@@ -8,7 +8,25 @@ class Comisiones {
             const comisiones = await this.api.getComisiones(userId, token);
             return comisiones;
         } catch (error) {
-            throw new Error('Error al obtener los comisiones');
+            throw new Error('Error al obtener las comisiones');
+        }
+    }
+
+    async buscarComisiones(userId, token, query) {
+        try {
+            const comisiones = await this.api.getSearchComisiones(userId, token, query);
+            return comisiones;
+        } catch (error) {
+            throw new Error('Error al obtener la busqueda');
+        }
+    }
+
+    async listAllComisiones(userId, token) {
+        try {
+            const comisiones = await this.api.getAllComisiones(userId, token);
+            return comisiones;
+        } catch (error) {
+            throw new Error('Error al obtener las comisiones');
         }
     }
 
@@ -17,7 +35,7 @@ class Comisiones {
             await this.api.deleteComision(productId, token);
             return true;
         } catch (error) {
-            throw new Error('Error al eliminar el comisiones');
+            throw new Error('Error al eliminar');
         }
     }
 
