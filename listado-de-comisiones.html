@@ -73,9 +73,15 @@
                                 <div class="row p-4">
                                     <div class="col-xl-5">
                                         <div class="form-group  mb-xl-0 mb-3">
-                                            <label for="busqueda" class="form-label">Busqueda</label>
-                                            <input type="text" class="form-control" id="inputBusqueda" name="inputBusqueda"
-                                                placeholder="Escribe para filtrar...">
+                                            <label for="busqueda" class="form-label">
+                                                Busqueda
+                                                <button type="button" class="badge text-bg-primary border-0" id="btnEliminarFiltros"
+                                                    style="display: none;">
+                                                    Remover filtros <i class="fa-solid fa-xmark"></i>
+                                                </button>
+                                            </label>
+                                            <input type="text" class="form-control" id="inputBusqueda"
+                                                name="inputBusqueda" placeholder="Escribe para filtrar...">
                                         </div>
                                     </div>
                                     <div class="col-xl-7">
@@ -129,7 +135,7 @@
                                             </h1>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6 d-flex align-items-center">
+                                    <div class="col-xl-6 d-flex align-items-center overflow-x-hidden">
                                         <canvas id="myChart" width="900" height="190"></canvas>
                                     </div>
                                 </div>
@@ -156,11 +162,11 @@
                                 <tbody id="comisionesContainer">
 
                                     <tr>
-                                        <td>
+                                        <td colspan="4" class="text-center">
                                             Cargando...
-                                        </td>                                        
+                                        </td>
                                     </tr>
-                                    
+
                                     <!-- <tr>
                                         <td>
                                             <span class="fst-italic">vendido el 20/11/2023</span>
@@ -368,7 +374,7 @@
 
 
     <script src="assets/common/js/main.js"></script>
-    <script src="assets/common/js/pages/load-sidebar-usuarios.js" type="module"></script>    
+    <script src="assets/common/js/pages/load-sidebar-usuarios.js" type="module"></script>
     <script src="assets/common/js/pages/listado-de-comisiones.js" type="module"></script>
 
 </body>
