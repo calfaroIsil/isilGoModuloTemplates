@@ -6,6 +6,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 /* PRELOADER */
 function removePreloader() {
     let preloader = document.getElementById("preloader");
+    if(preloader==null) return;
     preloader.style.opacity = "0";
     setTimeout(function () {
         preloader.style.display = "none";
@@ -38,5 +39,8 @@ function sanitizeInput(input) {
     var sanitizedInput = input.replace(/[^\w\s]/gi, '');
     return sanitizedInput;
 }
-
 /* METODO ELIMINA CARACTERES ESPECIALES */
+
+/* METODO PARA CERRAR SESSION */
+
+/* METODO PARA CERRAR SESSION */

@@ -12,6 +12,15 @@ class Cursos {
         }
     }
 
+    async detalleDeCurso(token, cursoId) {
+        try {
+            const curso = await this.api.getCursoDetail(token, cursoId);
+            return curso;
+        } catch (error) {
+            throw new Error('Error al obtener la busqueda');
+        }
+    }
+
     async buscarCursos(userId, token, query) {
         try {
             const cursos = await this.api.getSearchCursos(userId, token, query);

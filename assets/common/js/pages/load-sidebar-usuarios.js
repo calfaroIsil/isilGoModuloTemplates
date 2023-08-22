@@ -1,8 +1,6 @@
 import auth from '../modules/Auth.js';
 
-document.addEventListener('DOMContentLoaded', async () => {   
-    
-    
+document.addEventListener('DOMContentLoaded', async () => {
     const response = await fetch('templates/sidebar.html');
     const menuContent = await response.text();
     const navPlaceholders = document.querySelectorAll('#sidebar-container');
@@ -17,6 +15,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             labelNombresCompletos.innerHTML = `${uData.nombre} ${uData.apellido}`;
             labelCargo.innerHTML = uData.cargo;
             userImage.setAttribute("src", uData.imagen);
+
+            const btnLogout=document.getElementById("btnLogout");
+            btnLogout.addEventListener("click",logout);
          }
         
         /*============================================================/*
@@ -56,5 +57,13 @@ function addActive(url = window.location.href) {
         }
     }
 }
-
 /* AGREGANDO ACTIVE */
+
+/* AGREGANDO LOGOUT */
+function logout(event)
+{
+    event.preventDefault();
+    auth.removeToken();
+    location.reload();
+}
+/* AGREGANDO LOGOUT */

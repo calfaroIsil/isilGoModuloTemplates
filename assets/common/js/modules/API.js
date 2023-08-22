@@ -89,6 +89,16 @@ class API {
         return this.request(`/products/search?q=${query}`, 'GET', null, token);
     }
 
+    async getCursos(userId, token) { //----------------> CAMBIAR CUANDO EL API DE ISIL ESTÉ LISTA
+        return this.request(`/users/${userId}/carts`, 'GET', null, token);
+    }
+
+    async getCursoDetail(token, cursoId) { //----------------> CAMBIAR CUANDO EL API DE ISIL ESTÉ LISTA
+        return this.request(`/products/${cursoId}`, 'GET', null, token);
+    }
+    async getSearchCursos(userId, token, query) { //----------------> CAMBIAR CUANDO EL API DE ISIL ESTÉ LISTA
+        return this.request(`/products/search?q=${query}`, 'GET', null, token);
+    }
 }
 
 const api = new API('https://dummyjson.com');

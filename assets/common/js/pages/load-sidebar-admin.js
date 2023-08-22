@@ -1,9 +1,6 @@
 
 
-document.addEventListener('DOMContentLoaded', async () => {
-
-
-    
+document.addEventListener('DOMContentLoaded', async () => {    
 
     const response = await fetch('templates/sidebarAdmin.html');
     const menuContent = await response.text();

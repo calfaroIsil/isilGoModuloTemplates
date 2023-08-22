@@ -345,7 +345,7 @@ function crearSimpleDataTables()
             pageTitle: "Page {page}",
             perPage: "entries per page",
             noRows: "No entries found",
-            info: " ",
+            info: "Mostrando {rows} comisiones",
             noResults: "No results match your search query",
         }
     });
