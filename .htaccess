@@ -1,0 +1,10 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Redirigir URLs con extensión .html a URLs sin extensión
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s([^.]+)\.html\s
+RewriteRule ^ %1 [R=301,L]
+
+# Añadir la extensión .html internamente a las URLs
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [L]

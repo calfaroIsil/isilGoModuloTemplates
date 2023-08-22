@@ -10,13 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const loginForm = document.getElementById('login-form');
+    const alertLogin = document.getElementById('alertLogin');
 
     loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
+        alertLogin.style.display="none";
         const buttonSubmit = loginForm.querySelector("button[type='submit']");
         buttonSubmit.innerHTML = `<span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>`;
-        buttonSubmit.innerHTML += `<span role="status">Loading...</span>`;
+        buttonSubmit.innerHTML += `<span role="status">Conectando...</span>`;
         buttonSubmit.disabled = true;
 
         const username = document.getElementById('username').value;
@@ -25,12 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const APIresponse = await api.login(username, password);
             if (APIresponse.message != undefined && APIresponse.message == "Invalid credentials") {
-                alert("Usuario y/o contraseña inválidos, por favor intente denuevo");
+
+                alertLogin.style.display="block";
                 buttonSubmit.innerHTML = `ACCEDER`;
                 buttonSubmit.disabled = false;
             }
             else if (APIresponse.token != undefined) {
-                alert("bienvenido");
                 auth.setToken(APIresponse.token);
                 const uData = `{
                     "nombre": "${APIresponse.firstName}",
@@ -49,3 +51,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+

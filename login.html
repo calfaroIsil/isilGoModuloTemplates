@@ -24,7 +24,8 @@
         <div class="spinner"></div>
     </div>
 
-    <div class="container-fluid min-vh-100 d-md-flex d-block text-center flex-column justify-content-center align-items-center bg-primary">
+    <div
+        class="container-fluid min-vh-100 d-md-flex d-block text-center flex-column justify-content-center align-items-center bg-primary">
 
         <img src="assets/common/images/logo-isil.svg" alt="isilgo" class="img-fluid mb-4 mt-md-0 mt-5">
 
@@ -32,6 +33,12 @@
             <h4 class="text-secondary mb-1">INICIA SESIÓN</h4>
             <p class="mb-4">Introduce tus datos para gestionar tu cuenta.</p>
             <div class="col-md-12">
+
+                <div class="alert alert-warning" id="alertLogin" style="display: none;">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Usuario y/o contraseña inválidos, por favor intente denuevo.
+                </div>
+
                 <form method="post" id="login-form">
                     <div class="mb-3 position-relative">
                         <div class="position-absolute top-50 start-0 translate-middle-y ms-3">
@@ -52,7 +59,7 @@
                             style="width: 100%;max-width:270px">
                     </div>
                     <div class="d-grid mb-3">
-                        <button class="btn btn-secondary rounded-1" type="submit" >
+                        <button class="btn btn-secondary rounded-1" type="submit">
                             ACCEDER
                         </button>
                     </div>

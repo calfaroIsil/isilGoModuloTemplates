@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 function addActive(url = window.location.href) {
     const aTags = sidebar.querySelectorAll("a");
     for (const aTag of aTags) {
-        if (aTag.href === url) {
+        if (aTag.href === url+".html") {
             let parent = aTag.parentNode;
             parent.classList.add("active");
         }

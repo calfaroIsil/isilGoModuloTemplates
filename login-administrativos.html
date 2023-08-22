@@ -27,30 +27,32 @@
             <h4 class="text-secondary mb-1">INICIA SESIÓN</h4>
             <p class="mb-4">Introduce tus datos para gestionar tu cuenta.</p>
             <div class="col-md-12">
-                <div class="mb-3 position-relative">
-                    <div class="position-absolute top-50 start-0 translate-middle-y ms-3">
-                        <i class="fas fa-envelope fw-bold"></i>
+                <form method="post" id="login-form">
+                    <div class="mb-3 position-relative">
+                        <div class="position-absolute top-50 start-0 translate-middle-y ms-3">
+                            <i class="fas fa-envelope fw-bold"></i>
+                        </div>
+                        <input type="email" class="form-control ps-5 bg-light" name="email"
+                            placeholder="Dirección de correo" autocomplete="off">
                     </div>
-                    <input type="email" class="form-control ps-5 bg-light" name="email"
-                        placeholder="Dirección de correo" autocomplete="off">
-                </div>
-                <div class="mb-3 position-relative">
-                    <div class="position-absolute top-50 start-0 translate-middle-y ms-3">
-                        <i class="fa-solid fa-lock"></i>
+                    <div class="mb-3 position-relative">
+                        <div class="position-absolute top-50 start-0 translate-middle-y ms-3">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <input type="password" class="form-control ps-5 bg-light" name="pass" placeholder="Contraseña"
+                            autocomplete="off">
                     </div>
-                    <input type="password" class="form-control ps-5 bg-light" name="pass" placeholder="Contraseña"
-                        autocomplete="off">
-                </div>
-                <div class="captcha text-start mb-3">
-                    <img src="https://i.imgur.com/5ZUAirb.png" alt="captcha" class="img-fluid"
-                        style="width: 100%;max-width:270px">
-                </div>
-                <div class="d-grid mb-3">
-                    <button class="btn btn-secondary rounded-1" type="button"
-                        onclick="window.location.href='admin-docentes.html'">
-                        ACCEDER
-                    </button>
-                </div>
+                    <div class="captcha text-start mb-3">
+                        <img src="https://i.imgur.com/5ZUAirb.png" alt="captcha" class="img-fluid"
+                            style="width: 100%;max-width:270px">
+                    </div>
+                    <div class="d-grid mb-3">
+                        <button class="btn btn-secondary rounded-1" type="button"
+                            onclick="window.location.href='admin-docentes.html'">
+                            ACCEDER
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
 
