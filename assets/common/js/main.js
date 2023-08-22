@@ -40,7 +40,3 @@ function sanitizeInput(input) {
     return sanitizedInput;
 }
 /* METODO ELIMINA CARACTERES ESPECIALES */
-
-/* METODO PARA CERRAR SESSION */
-
-/* METODO PARA CERRAR SESSION */

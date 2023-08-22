@@ -18,6 +18,13 @@
 </head>
 
 <body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- PRELOADER -->
+
     <div
         class="container-fluid min-vh-100 d-md-flex d-block text-center flex-column justify-content-center align-items-center bg-primary">
 
@@ -27,30 +34,35 @@
             <h4 class="text-secondary mb-1">INICIA SESIÓN</h4>
             <p class="mb-4">Introduce tus datos para gestionar tu cuenta.</p>
             <div class="col-md-12">
+                <div class="alert alert-warning" id="alertLogin" style="display: none;">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Usuario y/o contraseña inválidos, por favor intente denuevo.
+                </div>
                 <form method="post" id="login-form">
                     <div class="mb-3 position-relative">
                         <div class="position-absolute top-50 start-0 translate-middle-y ms-3">
                             <i class="fas fa-envelope fw-bold"></i>
                         </div>
-                        <input type="email" class="form-control ps-5 bg-light" name="email"
-                            placeholder="Dirección de correo" autocomplete="off">
+                        <input type="text" class="form-control ps-5 bg-light" name="username"
+                            placeholder="Dirección de correo" id="username" autocomplete="off" required>
                     </div>
                     <div class="mb-3 position-relative">
                         <div class="position-absolute top-50 start-0 translate-middle-y ms-3">
                             <i class="fa-solid fa-lock"></i>
                         </div>
-                        <input type="password" class="form-control ps-5 bg-light" name="pass" placeholder="Contraseña"
-                            autocomplete="off">
+                        <input type="password" class="form-control ps-5 bg-light" name="password"
+                            placeholder="Contraseña" autocomplete="off" id="password" required>
                     </div>
                     <div class="captcha text-start mb-3">
                         <img src="https://i.imgur.com/5ZUAirb.png" alt="captcha" class="img-fluid"
                             style="width: 100%;max-width:270px">
                     </div>
                     <div class="d-grid mb-3">
-                        <button class="btn btn-secondary rounded-1" type="button"
-                            onclick="window.location.href='admin-docentes.html'">
-                            ACCEDER
-                        </button>
+                        <div class="d-grid mb-3">
+                            <button class="btn btn-secondary rounded-1" type="submit">
+                                ACCEDER
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -66,6 +78,8 @@
 
 
     <script src="assets/common/js/main.js"></script>
+    <script type="module" src="assets/common/js/pages/login-administrativos.js"></script>
+
 </body>
 
 </html>
