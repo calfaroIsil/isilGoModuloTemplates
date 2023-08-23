@@ -976,6 +976,7 @@ td {
 .isil-dataTable .image-table {
     width: 60px;
     height: 60px;
+    max-width: initial !important;
 }
 
 .datatable-bottom {
@@ -1223,3 +1224,65 @@ td {
 /**********************************************/
 /************EDITAR DOCENTE********************/
 /**********************************************/
+
+/**********************************************/
+/***************PRELOADER**********************/
+/**********************************************/
+.preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bs-primary);
+    z-index: 99;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+  }
+
+
+  .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+/**********************************************/
+/***************PRELOADER**********************/
+/**********************************************/
+
+.modal-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+
+.modal-loader .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}

@@ -18,46 +18,23 @@
 </head>
 
 <body>
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- PRELOADER -->
+    
     <div class="container-fluid">
         <div class="row">
 
             <!-- SIDEBAR -->
-            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-primary sidebar p-0">
-                <div class="text-center mt-4 mb-5">
-                    <img src="assets/common/images/logo-isil.svg" alt="isilgo" class="img-fluid">
+            <div class="p-0" id="sidebar-container">
+                <div class="mt-3 ms-3">
+                    <strong class="me-2" role="status">Loading...</strong>
+                    <div class="spinner-border spinner-border-sm" aria-hidden="true"></div>
                 </div>
-                <div class="position-sticky">
-                    <ul class="nav flex-column isilMenu">
-                        <li class="active">
-                            <a href="admin-docentes.html">
-                                <i class="fa-solid fa-user"></i>Docentes
-                            </a>
-                        </li>
-                        <li>
-                            <a href="admin-tasas-masivas.html">
-                                <i class="fa-solid fa-box"></i>Tasas de comisiones masivas
-                            </a>
-                        </li>
-                        <li>
-                            <a href="login-administrativos.html">
-                                <i class="fa-solid fa-arrow-right-from-bracket"></i>Salir
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <button id="closeSidebar" class="d-md-none fs-3 position-absolute top-0 end-0 btn text-white">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </nav>
-            <!-- TOP MENU ON MOBILE -->
-            <div class="menuTopBar text-center py-3">
-                <img src="assets/common/images/logo-isil.svg" alt="isilgo" class="h-100">
-                <button id="sidebarCollapse" class="btn btn-light position-absolute top-0 end-0 mt-2 me-2">
-                    <i class="fa-solid fa-bars text-secondary"></i>
-                </button>
             </div>
-            <!-- TOP MENU ON MOBILE --> <!-- SIDEBAR -->
+            <!-- SIDEBAR -->
 
             <main id="content">
 
@@ -83,8 +60,9 @@
                                         class="btn btn-secondary dropdown-toggle border-start" data-bs-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false"></button>
                                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                        <a class="dropdown-item" href="#">Dropdown link</a>
-                                        <a class="dropdown-item" href="#">Dropdown link</a>
+                                        <a class="dropdown-item" href="#">Formato Excel</a>
+                                        <a class="dropdown-item" href="#">Formato PDF</a>
+                                        <a class="dropdown-item" href="#">Formato imágen (.PNG)</a>
                                     </div>
                                 </div>
                             </div>
@@ -95,9 +73,15 @@
                                 <div class="row p-4">
                                     <div class="col-xl-5">
                                         <div class="form-group  mb-xl-0 mb-3">
-                                            <label for="busqueda" class="form-label">Busqueda</label>
-                                            <input type="text" class="form-control" id="busqueda" name="busqueda"
-                                                placeholder="Escribe para filtrar...">
+                                            <label for="busqueda" class="form-label">
+                                                Busqueda
+                                                <button type="button" class="badge text-bg-primary border-0"
+                                                    id="btnEliminarFiltros" style="display: none;">
+                                                    Remover filtros <i class="fa-solid fa-xmark"></i>
+                                                </button>
+                                            </label>
+                                            <input type="text" class="form-control" id="inputBusqueda"
+                                                name="inputBusqueda" placeholder="Escribe para filtrar...">
                                         </div>
                                     </div>
                                     <div class="col-xl-7">
@@ -118,7 +102,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
-                                                <button type="button"
+                                                <button type="button" id="btnFiltrar"
                                                     class="btn btn-outline-secondary w-100">Filtrar</button>
                                             </div>
                                         </div>
@@ -143,700 +127,15 @@
                                                 <div class="text-center w-100 ">Tasa</div>
                                             </th>
                                             <th>
-                                                <div class="text-center w-100 ">Total Comisión</div>
+                                                <div class="text-center w-100 text-nowrap">Total Comisión</div>
                                             </th>
                                             <th>
                                                 <div class="text-center w-100 ">Acción</div>
                                             </th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Marco Del Castillo</p>
-                                                        <span class="fst-italic">Asesor Legal y Docente
-                                                            Universitario</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-success">Activo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">4</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h5 class="mb-0 text-danger">14%</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 3666</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Adriana Quirós</p>
-                                                        <span class="fst-italic">Country Manager, Perú</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-danger">Inactivo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">4</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h6 class="mb-0">Por curso</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 3666</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Denis Palacios</p>
-                                                        <span class="fst-italic">Gerente General</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-success">Activo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">2</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h6 class="mb-0 text-danger">18%</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 866</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Paul Braga</p>
-                                                        <span class="fst-italic">Co Founder & Director de Producto</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-danger">Inactivo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">6</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h6 class="mb-0">Por curso</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 700</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Armando Alvarado</p>
-                                                        <span class="fst-italic">Fundador y Director de Diversos Programas Educativos y de Coaching</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-success">Activo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">15</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h6 class="mb-0 text-danger">10%</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 3800</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Jessica Pejerrey</p>
-                                                        <span class="fst-italic">Consultora en programa PNUD y Catedrática Universitaria</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-success">Activo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">6</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h6 class="mb-0 text-danger">17%</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 2700</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Jessica Pejerrey</p>
-                                                        <span class="fst-italic">Consultora en programa PNUD y Catedrática Universitaria</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-success">Activo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">6</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h6 class="mb-0 text-danger">17%</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 2700</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Marco Del Castillo</p>
-                                                        <span class="fst-italic">Asesor Legal y Docente
-                                                            Universitario</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-success">Activo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">4</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h5 class="mb-0 text-danger">14%</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 3666</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Adriana Quirós</p>
-                                                        <span class="fst-italic">Country Manager, Perú</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-danger">Inactivo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">4</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h6 class="mb-0">Por curso</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 3666</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Denis Palacios</p>
-                                                        <span class="fst-italic">Gerente General</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-success">Activo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">2</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h6 class="mb-0 text-danger">18%</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 866</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Paul Braga</p>
-                                                        <span class="fst-italic">Co Founder & Director de Producto</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-danger">Inactivo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">6</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h6 class="mb-0">Por curso</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 700</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
-                                        <!-- item -->
-                                        <tr>
-                                            <td>
-                                                <div
-                                                    class="d-flex justify-content-start flex-xl-row flex-column align-items-center">
-                                                    <div class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3">
-                                                        <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                            class="image-table img-thumbnail rounded-circle">
-                                                    </div>
-                                                    <div class="d-inline-block">
-                                                        <p class="fw-bold mb-0">Armando Alvarado</p>
-                                                        <span class="fst-italic">Fundador y Director de Diversos Programas Educativos y de Coaching</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic"></span>
-                                                    <span class="badge bg-success">Activo</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Cursos:</span>
-                                                    <h5 class="mb-0">15</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Tasa(%):</span>
-                                                    <h6 class="mb-0 text-danger">10%</h6>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="text-center">
-                                                    <span class="fst-italic d-xl-none d-inline-block ">Comisiones
-                                                        Totales:</span>
-                                                    <h5 class="mb-0">S/ 3800</h5>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="admin-editar-docente.html"
-                                                        class="btn btn-secondary rounded-1 me-2"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        data-bs-title="Editar Docente">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </a>
-                                                    <a href="admin-listado-de-comisiones.html"
-                                                        class="btn btn-success rounded-1" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Ver comisiones">
-                                                        <i class="fa-solid fa-rectangle-list"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <!-- item -->
+                                    <tbody id="docentesContainer">
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -856,7 +155,10 @@
     <script src="assets/lib/simple-tables/simple-datatables7.3.0.js" type="text/javascript"></script>
 
     <script src="assets/common/js/main.js"></script>
-    <script src="assets/common/js/admin-docentes.js"></script>
+    <script type="module" src="assets/common/js/pages/load-sidebar-admin.js"></script>
+    <script type="module" src="assets/common/js/pages/admin-docentes.js"></script>
+
+
 
 </body>
 
