@@ -15,6 +15,7 @@ class Docentes {
     async detalleDeDocente(token, docenteId) {
         try {
             const docente = await this.api.getDocenteDetail(token, docenteId);
+            
             return docente;
         } catch (error) {
             throw new Error('Error al obtener la busqueda');

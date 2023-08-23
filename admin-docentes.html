@@ -18,6 +18,12 @@
 </head>
 
 <body>
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- PRELOADER -->
+    
     <div class="container-fluid">
         <div class="row">
 
@@ -67,9 +73,15 @@
                                 <div class="row p-4">
                                     <div class="col-xl-5">
                                         <div class="form-group  mb-xl-0 mb-3">
-                                            <label for="busqueda" class="form-label">Busqueda</label>
-                                            <input type="text" class="form-control" id="busqueda" name="busqueda"
-                                                placeholder="Escribe para filtrar...">
+                                            <label for="busqueda" class="form-label">
+                                                Busqueda
+                                                <button type="button" class="badge text-bg-primary border-0"
+                                                    id="btnEliminarFiltros" style="display: none;">
+                                                    Remover filtros <i class="fa-solid fa-xmark"></i>
+                                                </button>
+                                            </label>
+                                            <input type="text" class="form-control" id="inputBusqueda"
+                                                name="inputBusqueda" placeholder="Escribe para filtrar...">
                                         </div>
                                     </div>
                                     <div class="col-xl-7">
@@ -90,7 +102,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
-                                                <button type="button"
+                                                <button type="button" id="btnFiltrar"
                                                     class="btn btn-outline-secondary w-100">Filtrar</button>
                                             </div>
                                         </div>
@@ -115,7 +127,7 @@
                                                 <div class="text-center w-100 ">Tasa</div>
                                             </th>
                                             <th>
-                                                <div class="text-center w-100 ">Total Comisión</div>
+                                                <div class="text-center w-100 text-nowrap">Total Comisión</div>
                                             </th>
                                             <th>
                                                 <div class="text-center w-100 ">Acción</div>

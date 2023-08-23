@@ -6,7 +6,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 /* PRELOADER */
 function removePreloader() {
     let preloader = document.getElementById("preloader");
-    if(preloader==null) return;
+    if (preloader == null) return;
     preloader.style.opacity = "0";
     setTimeout(function () {
         preloader.style.display = "none";
@@ -40,3 +40,22 @@ function sanitizeInput(input) {
     return sanitizedInput;
 }
 /* METODO ELIMINA CARACTERES ESPECIALES */
+
+/* OBTENER EL VALOR DE LOS PARAMETROS DE UNA URL */
+function obtenerParametrosDeUrl() {
+    const url = window.location.search;
+    const params = {};
+    const urlParts = url.split("?");
+
+    if (urlParts.length > 1) {
+        const queryString = urlParts[1];
+        const paramPairs = queryString.split("&");
+
+        paramPairs.forEach(pair => {
+            const [key, value] = pair.split("=");
+            params[key] = decodeURIComponent(value);
+        });
+    }
+    return params;
+}
+/* OBTENER EL VALOR DE LOS PARAMETROS DE UNA URL */

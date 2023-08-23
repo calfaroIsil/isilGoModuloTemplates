@@ -18,6 +18,13 @@
 </head>
 
 <body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="spinner"></div>
+    </div>
+    <!-- PRELOADER -->
+
     <div class="container-fluid">
         <div class="row">
 
@@ -38,7 +45,7 @@
                 </button>
 
                 <section id="principal" class="px-md-4 px-2 py-md-4 py-0">
-                    <form action="" method="post" class="form-editar-docente needs-validation"  novalidate>
+                    <form action="" method="post" class="form-editar-docente" id="form-editar-docente">
                         <div class="card border-gray mb-3">
                             <div class="card-header py-3 px-4">
 
@@ -64,7 +71,7 @@
                                                 <div
                                                     class="d-inline-block me-xl-2 me-0 mb-xl-0 mb-3 image-edit ratio-1x1">
                                                     <img src="https://i.imgur.com/Gfdvj6b.jpg" alt="docente-image"
-                                                        class="img-thumbnail rounded-circle">
+                                                        class="img-thumbnail rounded-circle" id="imagen-docente">
                                                 </div>
                                                 <div class="d-inline-block flex-fill">
                                                     <label for="nombres" class="form-label">
@@ -306,10 +313,9 @@
     <link href="assets/lib/simple-tables/style.css" rel="stylesheet" type="text/css">
     <script src="assets/lib/simple-tables/simple-datatables7.3.0.js" type="text/javascript"></script>
 
-
-    <script src="assets/common/js/load-sidebar-admin.js"></script>
     <script src="assets/common/js/main.js"></script>
-    <script src="assets/common/js/admin-editar-docente.js"></script>
+    <script type="module" src="assets/common/js/pages/load-sidebar-admin.js"></script>
+    <script type="module" src="assets/common/js/pages/admin-editar-docente.js"></script>
 
 </body>
 

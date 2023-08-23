@@ -104,6 +104,13 @@ class API {
     async getAllDocentes(userId, token) { //----------------> CAMBIAR CUANDO EL API DE ISIL ESTÉ LISTA
         return this.request(`/users`, 'GET', null, token);
     }
+
+    async getSearchDocentes(userId, token, query) { //----------------> CAMBIAR CUANDO EL API DE ISIL ESTÉ LISTA
+        return this.request(`/users/search?q=${query}`, 'GET', null, token);
+    }
+    async getDocenteDetail(token, docenteId) { //----------------> CAMBIAR CUANDO EL API DE ISIL ESTÉ LISTA
+        return this.request(`/users/${docenteId}`, 'GET', null, token);
+    }
 }
 
 const api = new API('https://dummyjson.com');
